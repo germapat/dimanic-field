@@ -1,0 +1,346 @@
+Help on DataViewSet in module form.views object:
+
+class DDaattaaVViieewwSSeett(rest_framework.viewsets.ModelViewSet)
+ |  A viewset that provides default `create()`, `retrieve()`, `update()`,
+ |  `partial_update()`, `destroy()` and `list()` actions.
+ |  
+ |  Method resolution order:
+ |      DataViewSet
+ |      rest_framework.viewsets.ModelViewSet
+ |      rest_framework.mixins.CreateModelMixin
+ |      rest_framework.mixins.RetrieveModelMixin
+ |      rest_framework.mixins.UpdateModelMixin
+ |      rest_framework.mixins.DestroyModelMixin
+ |      rest_framework.mixins.ListModelMixin
+ |      rest_framework.viewsets.GenericViewSet
+ |      rest_framework.viewsets.ViewSetMixin
+ |      rest_framework.generics.GenericAPIView
+ |      rest_framework.views.APIView
+ |      django.views.generic.base.View
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  ____iinniitt____(self, *args, **kwargs)
+ |      Constructor. Called in the URLconf; can contain helpful extra
+ |      keyword arguments, and other things.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  bbaasseennaammee = None
+ |  
+ |  ddeessccrriippttiioonn = None
+ |  
+ |  ddeettaaiill = None
+ |  
+ |  nnaammee = None
+ |  
+ |  qquueerryysseett = <BaseQuerySet [<Form: Form object (26)>]>
+ |  
+ |  sseerriiaalliizzeerr__ccllaassss = <class 'form.serializers.FormSerializer'>
+ |      A `ModelSerializer` is just a regular `Serializer`, except that:
+ |      
+ |      * A set of default fields are automatically populated.
+ |      * A set of default validators are automatically populated.
+ |      * Default `.create()` and `.update()` implementations are provided.
+ |      
+ |      The process of automatically determining a set of serializer fields
+ |      based on the model fields is reasonably complex, but you almost certainly
+ |      don't need to dig into the implementation.
+ |      
+ |      If the `ModelSerializer` class *doesn't* generate the set of fields that
+ |      you need you should either declare the extra/differing fields explicitly on
+ |      the serializer class, or simply use a `Serializer` class.
+ |  
+ |  ssuuffffiixx = None
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.mixins.CreateModelMixin:
+ |  
+ |  ccrreeaattee(self, request, *args, **kwargs)
+ |  
+ |  ggeett__ssuucccceessss__hheeaaddeerrss(self, data)
+ |  
+ |  ppeerrffoorrmm__ccrreeaattee(self, serializer)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rest_framework.mixins.CreateModelMixin:
+ |  
+ |  ____ddiicctt____
+ |      dictionary for instance variables (if defined)
+ |  
+ |  ____wweeaakkrreeff____
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.mixins.RetrieveModelMixin:
+ |  
+ |  rreettrriieevvee(self, request, *args, **kwargs)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.mixins.UpdateModelMixin:
+ |  
+ |  ppaarrttiiaall__uuppddaattee(self, request, *args, **kwargs)
+ |  
+ |  ppeerrffoorrmm__uuppddaattee(self, serializer)
+ |  
+ |  uuppddaattee(self, request, *args, **kwargs)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.mixins.DestroyModelMixin:
+ |  
+ |  ddeessttrrooyy(self, request, *args, **kwargs)
+ |  
+ |  ppeerrffoorrmm__ddeessttrrooyy(self, instance)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.mixins.ListModelMixin:
+ |  
+ |  lliisstt(self, request, *args, **kwargs)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.viewsets.ViewSetMixin:
+ |  
+ |  ggeett__eexxttrraa__aaccttiioonn__uurrll__mmaapp(self)
+ |      Build a map of {names: urls} for the extra actions.
+ |      
+ |      This method will noop if `detail` was not provided as a view initkwarg.
+ |  
+ |  iinniittiiaalliizzee__rreeqquueesstt(self, request, *args, **kwargs)
+ |      Set the `.action` attribute on the view, depending on the request method.
+ |  
+ |  rreevveerrssee__aaccttiioonn(self, url_name, *args, **kwargs)
+ |      Reverse the action for the given `url_name`.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods inherited from rest_framework.viewsets.ViewSetMixin:
+ |  
+ |  aass__vviieeww(actions=None, **initkwargs) from builtins.type
+ |      Because of the way class based views create a closure around the
+ |      instantiated view, we need to totally reimplement `.as_view`,
+ |      and slightly modify the view function that is created and returned.
+ |  
+ |  ggeett__eexxttrraa__aaccttiioonnss() from builtins.type
+ |      Get the methods that are marked as an extra ViewSet `@action`.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.generics.GenericAPIView:
+ |  
+ |  ffiilltteerr__qquueerryysseett(self, queryset)
+ |      Given a queryset, filter it with whichever filter backend is in use.
+ |      
+ |      You are unlikely to want to override this method, although you may need
+ |      to call it either from a list view, or from a custom `get_object`
+ |      method if you want to apply the configured filtering backend to the
+ |      default queryset.
+ |  
+ |  ggeett__oobbjjeecctt(self)
+ |      Returns the object the view is displaying.
+ |      
+ |      You may want to override this if you need to provide non-standard
+ |      queryset lookups.  Eg if objects are referenced using multiple
+ |      keyword arguments in the url conf.
+ |  
+ |  ggeett__ppaaggiinnaatteedd__rreessppoonnssee(self, data)
+ |      Return a paginated style `Response` object for the given output data.
+ |  
+ |  ggeett__qquueerryysseett(self)
+ |      Get the list of items for this view.
+ |      This must be an iterable, and may be a queryset.
+ |      Defaults to using `self.queryset`.
+ |      
+ |      This method should always be used rather than accessing `self.queryset`
+ |      directly, as `self.queryset` gets evaluated only once, and those results
+ |      are cached for all subsequent requests.
+ |      
+ |      You may want to override this if you need to provide different
+ |      querysets depending on the incoming request.
+ |      
+ |      (Eg. return a list of items that is specific to the user)
+ |  
+ |  ggeett__sseerriiaalliizzeerr(self, *args, **kwargs)
+ |      Return the serializer instance that should be used for validating and
+ |      deserializing input, and for serializing output.
+ |  
+ |  ggeett__sseerriiaalliizzeerr__ccllaassss(self)
+ |      Return the class to use for the serializer.
+ |      Defaults to using `self.serializer_class`.
+ |      
+ |      You may want to override this if you need to provide different
+ |      serializations depending on the incoming request.
+ |      
+ |      (Eg. admins get full serialization, others get basic serialization)
+ |  
+ |  ggeett__sseerriiaalliizzeerr__ccoonntteexxtt(self)
+ |      Extra context provided to the serializer class.
+ |  
+ |  ppaaggiinnaattee__qquueerryysseett(self, queryset)
+ |      Return a single page of results, or `None` if pagination is disabled.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rest_framework.generics.GenericAPIView:
+ |  
+ |  ppaaggiinnaattoorr
+ |      The paginator instance associated with the view, or `None`.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from rest_framework.generics.GenericAPIView:
+ |  
+ |  ffiilltteerr__bbaacckkeennddss = [<class 'django_filters.rest_framework.backends.Djan...
+ |  
+ |  llooookkuupp__ffiieelldd = 'pk'
+ |  
+ |  llooookkuupp__uurrll__kkwwaarrgg = None
+ |  
+ |  ppaaggiinnaattiioonn__ccllaassss = None
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from rest_framework.views.APIView:
+ |  
+ |  cchheecckk__oobbjjeecctt__ppeerrmmiissssiioonnss(self, request, obj)
+ |      Check if the request should be permitted for a given object.
+ |      Raises an appropriate exception if the request is not permitted.
+ |  
+ |  cchheecckk__ppeerrmmiissssiioonnss(self, request)
+ |      Check if the request should be permitted.
+ |      Raises an appropriate exception if the request is not permitted.
+ |  
+ |  cchheecckk__tthhrroottttlleess(self, request)
+ |      Check if request should be throttled.
+ |      Raises an appropriate exception if the request is throttled.
+ |  
+ |  ddeetteerrmmiinnee__vveerrssiioonn(self, request, *args, **kwargs)
+ |      If versioning is being used, then determine any API version for the
+ |      incoming request. Returns a two-tuple of (version, versioning_scheme)
+ |  
+ |  ddiissppaattcchh(self, request, *args, **kwargs)
+ |      `.dispatch()` is pretty much the same as Django's regular dispatch,
+ |      but with extra hooks for startup, finalize, and exception handling.
+ |  
+ |  ffiinnaalliizzee__rreessppoonnssee(self, request, response, *args, **kwargs)
+ |      Returns the final response object.
+ |  
+ |  ggeett__aauutthheennttiiccaattee__hheeaaddeerr(self, request)
+ |      If a request is unauthenticated, determine the WWW-Authenticate
+ |      header to use for 401 responses, if any.
+ |  
+ |  ggeett__aauutthheennttiiccaattoorrss(self)
+ |      Instantiates and returns the list of authenticators that this view can use.
+ |  
+ |  ggeett__ccoonntteenntt__nneeggoottiiaattoorr(self)
+ |      Instantiate and return the content negotiation class to use.
+ |  
+ |  ggeett__eexxcceeppttiioonn__hhaannddlleerr(self)
+ |      Returns the exception handler that this view uses.
+ |  
+ |  ggeett__eexxcceeppttiioonn__hhaannddlleerr__ccoonntteexxtt(self)
+ |      Returns a dict that is passed through to EXCEPTION_HANDLER,
+ |      as the `context` argument.
+ |  
+ |  ggeett__ffoorrmmaatt__ssuuffffiixx(self, **kwargs)
+ |      Determine if the request includes a '.json' style format suffix
+ |  
+ |  ggeett__ppaarrsseerr__ccoonntteexxtt(self, http_request)
+ |      Returns a dict that is passed through to Parser.parse(),
+ |      as the `parser_context` keyword argument.
+ |  
+ |  ggeett__ppaarrsseerrss(self)
+ |      Instantiates and returns the list of parsers that this view can use.
+ |  
+ |  ggeett__ppeerrmmiissssiioonnss(self)
+ |      Instantiates and returns the list of permissions that this view requires.
+ |  
+ |  ggeett__rreennddeerreerr__ccoonntteexxtt(self)
+ |      Returns a dict that is passed through to Renderer.render(),
+ |      as the `renderer_context` keyword argument.
+ |  
+ |  ggeett__rreennddeerreerrss(self)
+ |      Instantiates and returns the list of renderers that this view can use.
+ |  
+ |  ggeett__tthhrroottttlleess(self)
+ |      Instantiates and returns the list of throttles that this view uses.
+ |  
+ |  ggeett__vviieeww__ddeessccrriippttiioonn(self, html=False)
+ |      Return some descriptive text for the view, as used in OPTIONS responses
+ |      and in the browsable API.
+ |  
+ |  ggeett__vviieeww__nnaammee(self)
+ |      Return the view name, as used in OPTIONS responses and in the
+ |      browsable API.
+ |  
+ |  hhaannddllee__eexxcceeppttiioonn(self, exc)
+ |      Handle any exception that occurs, by returning an appropriate response,
+ |      or re-raising the error.
+ |  
+ |  hhttttpp__mmeetthhoodd__nnoott__aalllloowweedd(self, request, *args, **kwargs)
+ |      If `request.method` does not correspond to a handler method,
+ |      determine what kind of exception to raise.
+ |  
+ |  iinniittiiaall(self, request, *args, **kwargs)
+ |      Runs anything that needs to occur prior to calling the method handler.
+ |  
+ |  ooppttiioonnss(self, request, *args, **kwargs)
+ |      Handler method for HTTP 'OPTIONS' request.
+ |  
+ |  ppeerrffoorrmm__aauutthheennttiiccaattiioonn(self, request)
+ |      Perform authentication on the incoming request.
+ |      
+ |      Note that if you override this and simply 'pass', then authentication
+ |      will instead be performed lazily, the first time either
+ |      `request.user` or `request.auth` is accessed.
+ |  
+ |  ppeerrffoorrmm__ccoonntteenntt__nneeggoottiiaattiioonn(self, request, force=False)
+ |      Determine which renderer and media type to use render the response.
+ |  
+ |  ppeerrmmiissssiioonn__ddeenniieedd(self, request, message=None)
+ |      If request is not permitted, determine what kind of exception to raise.
+ |  
+ |  rraaiissee__uunnccaauugghhtt__eexxcceeppttiioonn(self, exc)
+ |  
+ |  tthhrroottttlleedd(self, request, wait)
+ |      If request is throttled, determine what kind of exception to raise.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from rest_framework.views.APIView:
+ |  
+ |  aalllloowweedd__mmeetthhooddss
+ |      Wrap Django's private `_allowed_methods` interface in a public property.
+ |  
+ |  ddeeffaauulltt__rreessppoonnssee__hheeaaddeerrss
+ |  
+ |  sscchheemmaa
+ |      Default inspector for APIView
+ |      
+ |      Responsible for per-view instrospection and schema generation.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from rest_framework.views.APIView:
+ |  
+ |  aauutthheennttiiccaattiioonn__ccllaasssseess = [<class 'rest_framework_jwt.authentication.JS...
+ |  
+ |  ccoonntteenntt__nneeggoottiiaattiioonn__ccllaassss = <class 'rest_framework.negotiation.Default...
+ |  
+ |  
+ |  mmeettaaddaattaa__ccllaassss = <class 'rest_framework.metadata.SimpleMetadata'>
+ |      This is the default metadata implementation.
+ |      It returns an ad-hoc set of information about the view.
+ |      There are not any formalized standards for `OPTIONS` responses
+ |      for us to base this on.
+ |  
+ |  ppaarrsseerr__ccllaasssseess = [<class 'rest_framework.parsers.JSONParser'>, <class ...
+ |  
+ |  ppeerrmmiissssiioonn__ccllaasssseess = [<class 'app.permissions.CustomModelPermissions'>...
+ |  
+ |  rreennddeerreerr__ccllaasssseess = [<class 'rest_framework.renderers.JSONRenderer'>, <...
+ |  
+ |  sseettttiinnggss = <rest_framework.settings.APISettings object>
+ |  
+ |  tthhrroottttllee__ccllaasssseess = []
+ |  
+ |  vveerrssiioonniinngg__ccllaassss = None
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from django.views.generic.base.View:
+ |  
+ |  hhttttpp__mmeetthhoodd__nnaammeess = ['get', 'post', 'put', 'patch', 'delete', 'head', ...
