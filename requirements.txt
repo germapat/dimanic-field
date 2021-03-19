@@ -9,7 +9,7 @@ django-cors-headers==2.5.2
 django-debug-toolbar==1.11
 django-filter==2.1.0
 django-import-export==1.2.0
-djangorestframework==3.9.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 et-xmlfile==1.0.1
 # fw==1.7.4
